@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<style>
+    .logo{
+      height: 75px;
+      width: 90px;
+    }
+    #footerbg{
+      background-color: #03989E;
+
+    }
+
+    .navbar{
+      background-color:#8dd4d6 ;
+    }
+   
+</style>
+
+<body>
+
+ <!-- Start Of Navbar  -->
+
+ <nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="logo.png">
+      
+  </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            PRODUCTS
+          </a>
+          <ul class="dropdown-menu">
+          
+            <li><a class="dropdown-item" href="ESSENTIALOILS.html"></a>ESSENTIAL OILS</li>
+            <li><a class="dropdown-item" href="helping machine.html"></a>HELPING MACHINE/ACCESSORIES</li>
+          <li><a class="dropdown-item" href="CARDIORESPIRATORY.html"></a>CARDIORESPIRATORY</li>         
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">GALLERY</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">SERVICES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="testimonials.html">TESTIMONIALS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">CONTACT US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">ABOUT US</a>
+        </li>
+
+      </ul>
+      <form class="d-flex" role="search">
+        
+        <a class="nav-link" href="educationinfo.html">EDUCATIONAL INFORMATIONS</a>
+      
+        <!-- <button class="btn btn-outline-success" type="" href="educationinfo.html">EDUCATIONAL INFORMATIONS</button> -->
+      </form>
+    </div>
+  </div>
+</nav>
+
+                  <!-- End Of Navbar  -->
+
+<!-- validation -->
+<br><br><br>
+
+    <!-- Default form register -->
+    <form class="text-center border border-light p-5 container" id="registrationForm" style="box-shadow: 10px 10px 10px 10px gray;">
+
+        <p class="h4 mb-4">Sign up</p>
+
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                <small class="text-danger" id="firstNameError"></small>
+            </div>
+            <br>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                <small class="text-danger" id="lastNameError"></small>
+            </div>
+        </div>
+
+        <!-- E-mail -->
+        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+        <!-- Password -->
+        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            At least 8 characters and 1 digit
+        </small>
+
+        <!-- Phone number -->
+        <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+            Optional - for two-step authentication
+        </small>
+        <small class="text-danger" id="phoneError"></small>
+<br>
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+
+<!-- end validation -->
+    </form>
+
+<!-- form validation javascript -->
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the form from submitting
+
+          var firstNameInput = document.getElementById('defaultRegisterFormFirstName');
+          var lastNameInput = document.getElementById('defaultRegisterFormLastName');
+          var phoneInput = document.getElementById('defaultRegisterPhonePassword');
+          var firstName = firstNameInput.value;
+          var lastName = lastNameInput.value;
+          var phone = phoneInput.value;
+          var firstNameRegex = /^[A-Za-z]+$/;
+          var lastNameRegex = /^[A-Za-z]+$/;
+          var phoneRegex = /^\d{11}$/;
+
+          // Reset error messages
+          document.getElementById('firstNameError').textContent = '';
+          document.getElementById('lastNameError').textContent = '';
+          document.getElementById('phoneError').textContent = '';
+
+          // Check if first name contains only alphabets
+          if (!firstName.match(firstNameRegex)) {
+              document.getElementById('firstNameError').textContent = 'First name should contain only alphabets';
+              return; // Stop form submission
+          }
+
+          // Check if last name contains only alphabets
+          if (!lastName.match(lastNameRegex)) {
+              document.getElementById('lastNameError').textContent = 'Last name should contain only alphabets';
+              return; // Stop form submission
+          }
+
+          // Check if phone number is 11 digits without alphabets
+          if (!phone.match(phoneRegex)) {
+              document.getElementById('phoneError').textContent = 'Phone number should be 11 digits without alphabets';
+              return; // Stop form submission
+          }
+
+          // Continue with form submission if validation passes
+          console.log('Form submitted successfully');
+          // Add your code here to submit the form to the server or perform further actions
+
+          // Display an alert message
+          alert('Form submitted successfully!');
+      });
+      
+  </script>
+<!-- form validation javascript end  -->
+
+<section class="">
+  <div class="container text-center text-md-start mt-5 pt-5">
+    <!-- Grid row -->
+    <div class="row pt-5">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          <i class="fas fa-gem me-3 text-secondary"></i>ZARA CLINIC TERMS & CONDITIONS
+        </h6>
+        <p>
+          Worldwide the physiotherapy community is divided by name, with three different primary titles used: physiotherapy, physical therapy and kinesiotherapy. Notwithstanding, that within the term physiotherapist, there are also language derivations such as fisio, fisicos, fysio and fiso.  Finding a single word to describe the community is always goingto be difficult.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          Products
+        </h6>
+        <p>
+          <a href="ESSENTIALOILS.html" class="text-reset">ESSENTIAL OILS</a>
+        </p>
+       
+        <p>
+          <a href="helping machine.html" class="text-reset">HELPING MACHINE/ACCESSORIES</a>
+        </p>
+        
+        <p>
+          <a href="CARDIORESPIRATORY.html" class="text-reset">CARDIORESPIRATORY</a>
+        </p>
+      </div>
+      
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          Useful links
+        </h6>
+        <p>
+          <a href="index.html" class="text-reset">HOME</a>
+        </p>
+        
+        <p>
+          <a href="services.html" class="text-reset">SERVIES</a>
+        </p>
+        <p>
+          <a href="gallery.html" class="text-reset">GALLERY</a>
+        </p>
+        <p>
+          <a href="testimonials.html" class="text-reset">TESTIMONIALS</a>
+        </p>
+        <p>
+          <a href="about.html" class="text-reset">ABOUT US</a>
+        </p>
+        <p>
+          <a href="educationinfo.html" class="text-reset">EDUCATIONAL INFORMATION</a>
+        </p>
+        <p>
+          <a href="contact.html" class="text-reset">CONTACT US</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+        <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
+        <p>
+          <i class="fas fa-envelope me-3 text-secondary"></i>
+          office@zaravancouver.com
+        </p>
+        <p><i class="fas fa-phone me-3 text-secondary"></i> 0308-2042032</p>
+        <p><i class="fas fa-print me-3 text-secondary"></i> 0325-2824686</p>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+</section>
+
+
+ 
+         
+  
+
+</body>
